@@ -17,32 +17,32 @@ export default new Vuex.Store({
         chatHistory: []
     },
     mutations: {
-        updateLogin(state, incomingUsername) {
+        updateLogin (state, incomingUsername) {
             state.username = incomingUsername
             state.loggedIn = true
         },
-        updateUsers(state, incomingUsers) {
+        updateUsers (state, incomingUsers) {
             state.users = incomingUsers
         },
-        updateChatHistory(state, incomingChatHistory) {
+        updateChatHistory (state, incomingChatHistory) {
             state.chatHistory = incomingChatHistory
         }
     },
     actions: {
-        onConnect({ commit, state }) {
+        onConnect ({ commit, state }) {
             socket.on('chatHistory', (chatHistory) => {
                 commit('updateChatHistory', chatHistory)
             })
         },
 
-        handleLogin({ commit }, incomingUsername) {
+        handleLogin ({ commit }, incomingUsername) {
             commit('updateLogin', incomingUsername)
             socket.emit('login', incomingUsername, (incomingChatHistory) => {
                 commit('updateChatHistory', incomingChatHistory)
             })
         },
 
-        sendMessage({ commit, state }, message) {
+        sendMessage ({ commit, state }, message) {
             const output = { sender: state.username, message: message }
             socket.emit('newMessage', output, (incomingChatHistory) => {
                 commit('updateChatHistory', incomingChatHistory)
