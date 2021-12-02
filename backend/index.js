@@ -5,9 +5,7 @@ const server = http.createServer(app);
 const io = require("socket.io")(server, { cors: { origin: '*' } });
 const cors = require('cors');
 
-const chatHistory = [
-
-]
+const chatHistory = []
 
 // Format: {ID: username}
 const clientIDs = {};
@@ -39,9 +37,6 @@ io.on('connection', (client) => {
         chatHistory.push(message)
         io.emit('chatHistory', chatHistory)
     })
-
-
-
 });
 
 server.listen(3000, () => {
