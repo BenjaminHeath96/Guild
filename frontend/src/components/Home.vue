@@ -118,7 +118,7 @@ $input-height: 70px;
             height: $input-height;
             margin-top: 30px;
             position: fixed;
-            bottom: 10px;
+            bottom: 0;
             left: 50px;
             right: 50px;
 
