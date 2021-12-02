@@ -16,8 +16,14 @@ If you open up additioal instances of the application in the browser, you will s
     - If I had 1 more hour:
         - Server would have stored chat history in a dictionary, so we can track conversation easily between multiple users.
         - Frontend would have had different collapses to show different conversations
-    - If I had more time:
+    - If I had another day:
         - Server would have used a real database.
         - Frontend would have used something more elegant than collapses
-- Styling
-With some more time, I would have cleaned up 
+- Actual authentication/logging in
+- Ability to log out and log back in
+- Style improvements
+    - Adding a new message would cause the messages list to scroll
+    - Use `flex` styling everywhere, instead of using `display: fixed`.
+    - Only the chat card should scroll, not the entire viewport.
+
+Thanks for reading!
