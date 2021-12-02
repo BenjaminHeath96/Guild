@@ -3,7 +3,7 @@
         <b-navbar-brand href="#">Chatbot</b-navbar-brand>
 
         <b-navbar-nav>
-            <b-nav-item-dropdown v-if="!loggedIn" text="User" right>
+            <b-nav-item-dropdown v-if="!loggedIn" text="Login" right>
                 <b-dropdown-item @click="handleLogin('user1')" href="#">User 1</b-dropdown-item>
                 <b-dropdown-item @click="handleLogin('user2')" href="#">User 2</b-dropdown-item>
             </b-nav-item-dropdown>
