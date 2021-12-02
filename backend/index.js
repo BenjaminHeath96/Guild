@@ -20,14 +20,12 @@ io.on('connection', (client) => {
     console.log('a user connected');
 
     client.on('login', function (username) {
-        console.log('login', username)
         clientIDs[client.id] = username;
 
         io.to(client.id).emit('chatHistory', chatHistory)
     })
 
     client.on('chatHistory', () => {
-        console.log('chatHistory')
         const username = clientIDs[client.id]
 
         io.to(client.id).emit('chatHistory', chatHistory)
