@@ -31,14 +31,12 @@ export default new Vuex.Store({
     actions: {
         onConnect({ commit, state }) {
             socket.on('chatHistory', (chatHistory) => {
-                console.log('chatHistory', chatHistory)
                 commit('updateChatHistory', chatHistory)
             })
         },
 
         handleLogin({ commit }, incomingUsername) {
             commit('updateLogin', incomingUsername)
-            console.log('handleLogin')
             socket.emit('login', incomingUsername, (incomingChatHistory) => {
                 commit('updateChatHistory', incomingChatHistory)
             })
