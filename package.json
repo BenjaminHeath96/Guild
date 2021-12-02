@@ -1,0 +1,13 @@
+{
+    "name": "guild",
+    "version": "1.0.0",
+    "description": "Fullstack project",
+    "scripts": {
+        "start": "concurrently \"npm run serve --prefix frontend\" \"npm start --prefix backend\"",
+        "install": "npm install --prefix frontend && npm install --prefix backend"
+    },
+    "author": "ben heath",
+    "dependencies": {
+        "concurrently": "^6.4.0"
+    }
+}
