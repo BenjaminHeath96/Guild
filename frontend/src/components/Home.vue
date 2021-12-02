@@ -16,10 +16,8 @@
                     Aw man! You have no messages yet. Go ahead and text your friend to say hi!
                 </div>
                 <div class="text-input">
-                    <b-form inline>
-                        <b-form-input v-model="message" placeholder="Write your message here"></b-form-input>
-                        <b-button @click.prevent="handleInput" variant="primary">Send Message</b-button>
-                    </b-form>
+                    <b-form-input v-model="message" placeholder="Write your message here"></b-form-input>
+                    <b-button type="button" @click.stop="handleInput" variant="primary">Send Message</b-button>
                 </div>
             </b-card>
         </div>
@@ -53,7 +51,6 @@ export default {
     methods: {
         ...mapActions(['onConnect', 'sendMessage']),
         handleInput () {
-            console.log('sendMessage')
             if (this.message === '') {
                 return
             }
@@ -65,7 +62,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$input-height: 50px;
+$input-height: 70px;
 
 .home {
     // Content
@@ -116,6 +113,8 @@ $input-height: 50px;
 
         // Styling for text-input
         .text-input {
+            display: flex;
+
             height: $input-height;
             margin-top: 30px;
             position: fixed;
@@ -123,9 +122,6 @@ $input-height: 50px;
             left: 50px;
             right: 50px;
 
-            .form-inline {
-                display: flex;
-            }
         }
 
     }
